@@ -12,8 +12,8 @@ This Ruby on Rails app allows a user to provide a US address and retrieve the cu
 
 ## Installation
 ```
-git clone tbd
-cd tbd
+git clone https://github.com/elaineyoung702/weather-forecast-app.git
+cd weather-forecast-app
 bundle install
 rails s
 ```
