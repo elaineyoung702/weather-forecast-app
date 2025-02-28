@@ -1,0 +1,30 @@
+<h1>Weather Forecast Lookup</h1>
+
+<% if flash[:alert].present? %>
+  <p style="color: red; font-weight: bold;"><%= flash[:alert] %></p>
+<% end %>
+
+<%= form_with url: forecast_path, method: :get, local: true do %>
+  <div>
+    <%= label_tag :street, "Street:" %>
+    <%= text_field_tag :street, params[:street], :required => true %>
+  </div>
+
+  <div>
+    <%= label_tag :city, "City:" %>
+    <%= text_field_tag :city, params[:city], :required => true %>
+  </div>
+
+  <div>
+    <%= label_tag :state, "State:" %>
+    <%= text_field_tag :state, params[:state], :required => true %>
+  </div>
+
+  <div>
+    <%= label_tag :zip, "ZIP Code:" %>
+    <%= text_field_tag :zip, params[:zip], :required => true %>
+  </div>
+
+  <%= submit_tag "Get Forecast" %>
+<% end %>
+

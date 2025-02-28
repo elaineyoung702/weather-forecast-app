@@ -1,0 +1,46 @@
+<h1>Weather Forecast</h1>
+
+<% if @cached %>
+  <p style="color: blue;"><strong>Data is cached!</strong></p>
+<% else %>
+  <p style="color: green;"><strong>Fresh data retrieved.</strong></p>
+<% end %>
+
+<p>
+  <strong>Address:</strong>
+  <%= @verified_address %>
+</p>
+
+<% if @coordinates %>
+  <p>
+    <strong>Coordinates:</strong>
+    <%= @coordinates[:latitude] %>
+    <%= @coordinates[:longitude] %>
+  </p>
+<% else %>
+  <p>Coordinates not found.</p>
+<% end %>
+
+<% if @current_temp %>
+  <p>
+    <strong>Current Temperature:</strong>
+    <%= @current_temp %>
+  </p>
+<% else %>
+  <p>Forecast information not found.</p>
+<% end %>
+
+<strong>7-Day Forecast:</strong>
+<% if @daily_temps.present? %>
+  <ul>
+    <% @daily_temps.each do |day| %>
+      <li>
+        <%= day[:date] %>: High: <%= day[:high] %>, Low: <%= day[:low] %>
+      </li>
+    <% end %>
+  </ul>
+<% else %>
+  <p>Forecast data is unavailable.</p>
+<% end %>
+
+<%= link_to "Look up a different address", root_path %>
